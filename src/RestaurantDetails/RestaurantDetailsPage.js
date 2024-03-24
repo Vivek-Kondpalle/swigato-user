@@ -1,13 +1,14 @@
 import { View, Text, Pressable } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native';
 
-const RestaurantDetailsPage = () => {
-  const navigation = useNavigation();
+const RestaurantDetailsPage = ({ route }) => {
+  const { restaurantId } = route?.params;
+
+  console.log(' restaurantId ', restaurantId);
 
   return (
     <View>
-      <Text>RestaurantDetailsPage</Text>
+      <Text>RestaurantDetailsPage: {restaurantId}</Text>
       <Pressable onPress={() => navigation.navigate('CheckoutScreen')}>
         <Text>CheckoutScreenPage</Text>
       </Pressable>

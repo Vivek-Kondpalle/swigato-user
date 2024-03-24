@@ -1,22 +1,26 @@
 import React from 'react'
-import { Image, Pressable, Text, View } from 'react-native'
+import { Image, Pressable, Text, TouchableOpacity, View } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import ImageSlider from './ImageSlider';
+import { useNavigation } from '@react-navigation/native';
+
 
 const Card = (item) => {
+    const navigation = useNavigation();
+    
     const restaurantDetails = item?.detail?.item;
 
-    return (
-        <View style={{ width: '100%', alignItems: 'center', justifyContent: 'center' }}>
-            <View style={{ width: '95%', display: 'flex', alignItems: 'stretch', justifyContent: 'center', borderColor: 'black', borderWidth: 1, borderRadius: 16, marginVertical: 8 }}>
-                {/* Image */}
-                <Image
-                    source={{
-                        uri: `${restaurantDetails?.image}`,
-                    }}
-                    style={{ height: 200, borderTopLeftRadius: 16, borderTopRightRadius: 16 }}
-                />
+    const cardPressHandle = (id) => {
+        navigation.navigate('RestaurantDetails', {
+            restaurantId: id            
+        });
+    }
 
+    return (
+        <Pressable onPress={() => cardPressHandle(restaurantDetails?.id)} style={{ width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ width: '95%', display: 'flex', justifyContent: 'center', borderColor: 'black', borderWidth: 1, borderRadius: 16, marginVertical: 8 }}>
+                <ImageSlider images={restaurantDetails?.image} />
                 {/* Restaurant Title and Rating */}
                 <View style={{margin: 8 }}>
                     <View style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
@@ -34,7 +38,7 @@ const Card = (item) => {
                     {/* Subcategory */}
                     <View style={{ display: 'flex', flexDirection: 'row', marginBottom: 8 }}>
                     {restaurantDetails?.subcategories?.map((category, index) => (
-                        <Text>{category} {restaurantDetails?.subcategories?.length - 1 === index  ? ` ` : <Text style={{ fontWeight: 'bold' }}>{' \u00B7 '}</Text>}</Text>
+                        <Text key={index}>{category} {restaurantDetails?.subcategories?.length - 1 === index  ? ` ` : <Text style={{ fontWeight: 'bold' }}>{' \u00B7 '}</Text>}</Text>
                     ))}
                     </View>
 
@@ -59,7 +63,7 @@ const Card = (item) => {
                 </View>
 
             </View>
-        </View>
+        </Pressable>
     )
 }
 

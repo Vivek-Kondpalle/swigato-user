@@ -6,7 +6,12 @@ export const restaurantDetails = [
       "minDeliveryTime": 25,
       "maxDeliveryTime": 35,
       "rating": '4.0',
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+      "image": [
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
+      ],
       "subcategories": ['North Indian', 'Italian', '₹250 for one'],
       "discount": {
         "isDiscountAvailable": true,
@@ -18,13 +23,23 @@ export const restaurantDetails = [
           "name": "Cheese Tequeños",
           "description": "6 pieces of chese with sauce.",
           "price": 6.90,
-          "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+          "image": [
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+          ],
         },
         {
           "name": "Hamburger La Super Cabo Burger",
           "description": "Double meat, gouda cheese, cheddar cheese, cooked ham, bacon, egg, salad and rustic potatoes.",
           "price": 8.90,
-          "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg"
+          "image": [ 
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+          ]
         },
         {
           "name": "U.S.A. Burger",
@@ -50,7 +65,12 @@ export const restaurantDetails = [
       "minDeliveryTime": 25,
       "maxDeliveryTime": 35,
       "rating": 4.7,
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+      "image": [
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
+      ],
       "subcategories": ['South Indian', 'French', '₹1000 for two'],
       "discount": {
         "isDiscountAvailable": true,
@@ -93,7 +113,12 @@ export const restaurantDetails = [
       "minDeliveryTime": 20,
       "maxDeliveryTime": 30,
       "rating": 4.3,
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
+      "image": [
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+      ],
       "subcategories": ['Mughlai Cuisine', 'French', '₹1000 for two'],
       "discount": {
         "isDiscountAvailable": true,
@@ -135,7 +160,12 @@ export const restaurantDetails = [
       "minDeliveryTime": 30,
       "maxDeliveryTime": 40,
       "rating": 4.5,
-      "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
+      "image": [
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
+      ],
       "subcategories": ['Street Food', 'World Street Food', '₹200 for two'],
       "discount": {
         "isDiscountAvailable": false,
