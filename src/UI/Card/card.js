@@ -20,7 +20,13 @@ const Card = (item) => {
     return (
         <Pressable onPress={() => cardPressHandle(restaurantDetails?.id)} style={{ width: '100%', alignItems: 'center', justifyContent: 'center' }}>
             <View style={{ width: '95%', display: 'flex', justifyContent: 'center', borderColor: 'black', borderWidth: 1, borderRadius: 16, marginVertical: 8 }}>
-                <ImageSlider images={restaurantDetails?.image} />
+                {/* <ImageSlider images={restaurantDetails?.image} /> */}
+                <Image
+                    source={{
+                        uri: `${restaurantDetails?.image[0]}`,
+                    }}
+                    style={{ height: 200, borderTopLeftRadius: 16, borderTopRightRadius: 16 }}
+                />
                 {/* Restaurant Title and Rating */}
                 <View style={{margin: 8 }}>
                     <View style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>

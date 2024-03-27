@@ -10,18 +10,9 @@ const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
 const HomeScreen = () => {
   return (
     <SafeAreaView style={{height: '100%'}}>
-        <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-          {/* View Container */}
-          <View style={[styles.customHeader, { marginTop: statusBarHeight }]}>
-            {/* Location pin icon */}
-            <Entypo name="location-pin" size={24} color="pink" />
-            {/* Search bar */}
-            <TextInput
-              style={styles.searchBar}
-              placeholder="Search"
-              // Add other props for TextInput
-            />
-            {/* Add address picker if needed */}
+        <View style={{ display: 'flex', justifyContent: 'center',  width: '100%' }}>
+          <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginVertical: 8}}>
+            <Text>{restaurantDetails?.length} Restaurants delivering to you</Text>
           </View>
           <FlatList 
             data={restaurantDetails} 
@@ -37,9 +28,10 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   customHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
+    // display: 'flex',
+    // flexDirection: 'row',
+    // alignItems: 'center',
+    // padding: 10,
     // Set your preferred styling for the header
   },
   searchBar: {
