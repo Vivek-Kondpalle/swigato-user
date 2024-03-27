@@ -6,6 +6,7 @@ export const restaurantDetails = [
       "minDeliveryTime": 25,
       "maxDeliveryTime": 35,
       "rating": '4.0',
+      "totalRatings": '10000',
       "image": [
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
@@ -23,38 +24,36 @@ export const restaurantDetails = [
           "name": "Cheese Tequeños",
           "description": "6 pieces of chese with sauce.",
           "price": 6.90,
-          "image": [
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
-          ],
+          "rating": '4.1',
+          "totalRatings": '1000'
         },
         {
           "name": "Hamburger La Super Cabo Burger",
           "description": "Double meat, gouda cheese, cheddar cheese, cooked ham, bacon, egg, salad and rustic potatoes.",
           "price": 8.90,
-          "image": [ 
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
-          ]
+          "rating": '4.2',
+          "totalRatings": '2000'
         },
         {
           "name": "U.S.A. Burger",
           "description": "Beef, gouda cheese, cheddar cheese, cooked ham, bacon, egg and salad.",
-          "price": 5.40
+          "price": 5.40,
+          "rating": '4.4',
+          "totalRatings": '4000'
         },
         {
           "name": "Slices of Llanero Cheese",
           "description": "Ripe plantain with cheese and palm honey.",
-          "price": 5.90
+          "price": 5.90,
+          "rating": '3.9',
+          "totalRatings": '9000'
         },
         {
           "name": "Papas Locas El Cabo",
           "description": "French fries with shredded chicken, gouda cheese and ham.",
-          "price": 7.90
+          "price": 7.90,
+          "rating": '4.6',
+          "totalRatings": '6700'
         }
       ]
     },
@@ -65,6 +64,7 @@ export const restaurantDetails = [
       "minDeliveryTime": 25,
       "maxDeliveryTime": 35,
       "rating": 4.7,
+      "totalRatings": '14000',
       "image": [
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
@@ -81,28 +81,37 @@ export const restaurantDetails = [
         {
           "name": "Cajun Ribs",
           "description": "For lovers of a spicy touch. Ribs bathed in our Original sauce accompanied by Cajun spices. Served with French fries and coleslaw.",
-          "price": 18.95
+          "price": 18.95,
+          "rating": '4.1',
+          "totalRatings": '1500'
         },
         {
           "name": "The Original Baby Backs",
           "description": "The house specialty. Pork ribs cooked on the barbecue and marinated with our original barbecue sauce. Served with French fries and coleslaw.",
-          "price": 19.95
+          "price": 19.95,
+          "rating": '4.4',
+          "totalRatings": '1600'
         },
         {
           "name": "Carolina Honey",
           "description": "Our famous ribs marinated with our Carolina honey sauce, a mixture of honey with our original sauce. Ideal for those looking for a sweet touch. Served with French fries and coleslaw.",
           "price": 18.95,
-          "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
+          "rating": '4.8',
+          "totalRatings": '4200'
         },
         {
           "name": "Onion Rings",
           "description": "Los tradicionales aros de cebolla de tony roma´s dorados, crujientes y ligeros. Únicos en el mundo, acompañados de salsa BBQ.",
-          "price": 6.95
+          "price": 6.95,
+          "rating": '3.5',
+          "totalRatings": '1770'
         },
         {
           "name": "Nachos Tony Roma's",
           "description": "The best selling nachos! with our blend of melted cheeses, accompanied by guacamole, crispy bacon, ranch beans, and sour cream.",
-          "price": 10.95
+          "price": 10.95,
+          "rating": '3.7',
+          "totalRatings": '4500'
         }
       ]
     },
@@ -113,6 +122,7 @@ export const restaurantDetails = [
       "minDeliveryTime": 20,
       "maxDeliveryTime": 30,
       "rating": 4.3,
+      "totalRatings": '5000',
       "image": [
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant3.jpeg",
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg",
@@ -129,27 +139,37 @@ export const restaurantDetails = [
         {
           "name": "Burger Mustang",
           "description": "Homemade bread, burger sauce, lettuce, sweet and sour pickle, bacon, cheddar and BBQ sauce. Beef 180 grams.",
-          "price": 5.90
+          "price": 5.90,
+          "rating": '4.3',
+          "totalRatings": '5600'
         },
         {
           "name": "Alabama bread",
           "description": "Artisan bread, butter sauce, garlic, BBQ chicken and cheddar.",
-          "price": 3.00
+          "price": 3.00,
+          "rating": '3.9',
+          "totalRatings": '3500'
         },
         {
           "name": "New York Burger",
           "description": "Homemade bread, lettuce, burger sauce, 180 grams of beef, goat cheese and roasted apple.",
-          "price": 5.90
+          "price": 5.90,
+          "rating": '4.5',
+          "totalRatings": '900'
         },
         {
           "name": "Mac & Cheese Burger",
           "description": "Homemade bread, lettuce, burger sauce, 180 grams of beef, mac and cheese, and American-style bacon.",
-          "price": 5.90
+          "price": 5.90,
+          "rating": '3.0',
+          "totalRatings": '6000'
         },
         {
           "name": "Nachos Brothers",
           "description": "Nachos, guacamole, cheddar sauce, beans, bacon, and cream cheese.",
-          "price": 5.20
+          "price": 5.20,
+          "rating": '4.6',
+          "totalRatings": '4600'
         }
       ]
     },
@@ -160,6 +180,7 @@ export const restaurantDetails = [
       "minDeliveryTime": 30,
       "maxDeliveryTime": 40,
       "rating": 4.5,
+      "totalRatings": '5300',
       "image": [
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant4.jpeg",
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant2.jpeg",
@@ -176,27 +197,37 @@ export const restaurantDetails = [
         {
           "name": "English burger",
           "description": "Beef with bacon, portobello mushrooms, tomato, cheddar cheese, grilled egg and our smoked sauce.",
-          "price": 14.90
+          "price": 14.90,
+          "rating": '3.7',
+          "totalRatings": '2500'
         },
         {
           "name": "Mexican Burger",
           "description": "Beef, with pico de gallo, veggie chili, cheddar cheese, guacamole and smoked sauce.",
-          "price": 14.90
+          "price": 14.90,
+          "rating": '3.7',
+          "totalRatings": '2600'
         },
         {
           "name": "Tequeños",
           "description": "Crispy sticks filled with melted cheese accompanied by tomato chutney.",
-          "price": 9.90
+          "price": 9.90,
+          "rating": '2.1',
+          "totalRatings": '5200'
         },
         {
           "name": "Starters Combo",
           "description": "Tequeños, crispy onion and chicken delicacies.",
-          "price": 13.90
+          "price": 13.90,
+          "rating": '4.9',
+          "totalRatings": '90'
         },
         {
           "name": "Cesar Salad",
           "description": "Green sprouts, pieces of grilled bacon, chicken delicacies, grated Parmesan, muffin croutons and fried onion confetti dressed with Caesar sauce.",
-          "price": 10.50
+          "price": 10.50,
+          "rating": '3.1',
+          "totalRatings": '900'
         }
       ]
     }
