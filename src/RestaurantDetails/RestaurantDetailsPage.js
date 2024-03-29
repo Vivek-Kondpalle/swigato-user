@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native'
+import { View, Text, Pressable, StyleSheet, TouchableOpacity, Image, FlatList, ScrollView } from 'react-native'
 import React from 'react'
 import { restaurantDetails } from '../utils/restaurantsData';
 
@@ -15,26 +15,35 @@ const RestaurantDetailsPage = ({ route }) => {
   console.log(' restaurantAllDetails ', restaurantAllDetails);
 
   return (
-    <View style={{ flex: 1 }}>
-      {/* <Text>RestaurantDetailsPage: {restaurantId}</Text>
-      <Pressable onPress={() => navigation.navigate('CheckoutScreen')}>
-        <Text>CheckoutScreenPage</Text>
-      </Pressable> */}
+    <View>
+      <FlatList
+        data={restaurantAllDetails?.dishes}
+        renderItem={(item) => <FoodItemCard />}
+        ListHeaderComponent={() => <Header restaurantAllDetails={restaurantAllDetails} />}
+        ListFooterComponentStyle={{ marginBottom: 40 }}
+        keyExtractor={(item) => item.id}
+      />
 
-      {/* Header container */}
-      <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 16, gap: 8 }}>
+    </View>
+  )
+}
+
+const Header = (props) => {
+  const restaurantAllDetails = props?.restaurantAllDetails
+  return (
+    <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 16, gap: 8 }}>
         <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{restaurantAllDetails?.name}</Text>
         
         <View style={{ display: 'flex', flexDirection: 'row'}}>
           {
             restaurantAllDetails?.subcategories?.map((category, index) => (
-              <Text>{category} {restaurantAllDetails?.subcategories?.length - 1 === index  ? ` ` : <Text style={{ fontWeight: 'bold' }}>{' \u00B7 '}</Text>}</Text>
+              <Text key={index}>{category} {restaurantAllDetails?.subcategories?.length - 1 === index  ? ` ` : <Text style={{ fontWeight: 'bold' }}>{' \u00B7 '}</Text>}</Text>
             ))
           }
         </View>
 
         <View style={{ display: 'flex', flexDirection: 'row', flex: 0, gap: 8, justifyContent: 'center', alignItems: 'center'}}>
-          <View style={{ display: 'flex', flexDirection: 'row', alignContent: 'center', backgroundColor: 'green', borderRadius: 8, paddingHorizontal: 6, paddingVertical: 4,marginLeft: 8 }}>
+          <View style={{ display: 'flex', flexDirection: 'row', alignContent: 'center', backgroundColor: '#257d3d', borderRadius: 8, paddingHorizontal: 6, paddingVertical: 4,marginLeft: 8 }}>
               <Text style={{ color: 'white' }}>{restaurantAllDetails?.rating} </Text>
               <AntDesign name="star" size={16} color="white" style={{ marginTop: 2 }} />
           </View>
@@ -44,16 +53,6 @@ const RestaurantDetailsPage = ({ route }) => {
         </View>
 
       </View>
-
-
-      {/* Food Item Card */}
-      <FlatList
-        data={restaurantAllDetails?.dishes}
-        renderItem={(item) => <FoodItemCard />}
-        ListFooterComponentStyle={{ marginBottom: 40 }}
-      />
-
-    </View>
   )
 }
 
