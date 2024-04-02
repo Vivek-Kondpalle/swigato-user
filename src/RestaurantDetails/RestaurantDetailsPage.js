@@ -1,5 +1,5 @@
 import { View, Text, Pressable, StyleSheet, TouchableOpacity, Image, FlatList, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { restaurantDetails } from '../utils/restaurantsData';
 
 import { AntDesign } from '@expo/vector-icons';
@@ -12,13 +12,17 @@ const RestaurantDetailsPage = ({ route }) => {
 
   const restaurantAllDetails = restaurantDetails?.find((element) => restaurantId === element?.id);
 
-  console.log(' restaurantAllDetails ', restaurantAllDetails);
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleCartAdd = () => {
+    console.log(' in handleCartAdd ')
+  }
 
   return (
     <View>
       <FlatList
         data={restaurantAllDetails?.dishes}
-        renderItem={(item) => <FoodItemCard />}
+        renderItem={(item) => <FoodItemCard dishDetails={item} handleCartAdd={handleCartAdd} />}
         ListHeaderComponent={() => <Header restaurantAllDetails={restaurantAllDetails} />}
         ListFooterComponentStyle={{ marginBottom: 40 }}
         keyExtractor={(item) => item.id}
