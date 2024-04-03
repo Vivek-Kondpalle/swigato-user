@@ -1,59 +1,61 @@
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreenStack from "./HomeScreenStack";
 import OrdersScreenStack from "./OrdersScreenStack";
 import ProfileScreenStack from "./ProfileScreenStack";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
-import React, { useCallback, useState } from "react";
-import { getFocusedRouteNameFromRoute, useFocusEffect } from "@react-navigation/native";
+import React from "react";
 
-const Tab = createMaterialBottomTabNavigator()
+const Tab = createBottomTabNavigator()
 
-const MyTabs = () => {
-
-  // const [isFocused, setIsFocused] = useState(true); // Assume tab is initially visible
-
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     const onRouteChange = getFocusedRouteNameFromRoute(state); // Get the current route name
-  //     setIsFocused(onRouteChange === 'HomePage' || onRouteChange === 'OrdersScreen' || onRouteChange === 'ProfileScreen');
-  //     return () => setIsFocused(false); // Hide tab bar when outside main tabs
-  //   }, [])
-  // );
+const MyTabs = (props) => {
+  const hide = props?.routeName === 'RestaurantDetails' ? true : false;
 
   return (
-    <Tab.Navigator barStyle={{ backgroundColor: 'transparent' }}>
+    <Tab.Navigator 
+      screenOptions={{ 
+        headerShown: false,
+      }}
+      barStyle={{ backgroundColor: 'transparent' }}
+    >
       <Tab.Screen 
         name="Home" 
         component={HomeScreenStack} 
         options={{
+          tabBarStyle: { 
+            display : hide ? 'none' : 'flex', 
+            height: 60,
+          },
           tabBarLabel: 'Home',
           tabBarIcon: ({color}) => (
             <AntDesign name="home" size={24} color={color} />
           ),
-          // tabBarVisible: isFocused,
         }} />
       <Tab.Screen 
         name="Orders" 
         component={OrdersScreenStack} 
         options={{
+          tabBarStyle: {
+            height: 60
+          },
           tabBarLabel: 'Orders',
           tabBarIcon: ({color}) => (
             <MaterialIcons name="list-alt" size={24} color={color} />
           ),
-          // tabBarVisible: isFocused,
         }}
       />
       <Tab.Screen 
         name="Profile" 
         component={ProfileScreenStack} 
         options={{
+          tabBarStyle: {
+            height: 60
+          },
           tabBarLabel: 'Orders',
           tabBarIcon: ({color}) => (
             <FontAwesome5 name="user-alt" size={24} color={color} />
           ),
-          // tabBarVisible: isFocused,
         }}
       />
     </Tab.Navigator>

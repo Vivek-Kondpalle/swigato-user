@@ -1,61 +1,76 @@
-import { View, Text, Image, TouchableOpacity, TouchableHighlight, Pressable } from 'react-native'
+import { View, Text, Image, Pressable } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { AntDesign } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
 
 const FoodItemCard = (props) => {
   const dishDetails = props?.dishDetails?.item
+  const dishIndex = props?.dishDetails?.index
   const handleCartAdd = props?.handleCartAdd
+  const restaurantMenuLength = props?.restaurantMenuLength
+  const cartItems = props?.cartItems
+
+  const [itemQuantity, setItemQuantity] = useState(0)
+
+  useEffect(() => {
+    if(cartItems?.length){
+      let existingItem = cartItems.find((element) => element?.id === dishDetails?.id);
+      if(existingItem){
+        setItemQuantity(existingItem?.quantity);
+      }
+    }
+  }, [cartItems])
 
   return (
-    <View style={{ marginHorizontal: 8, padding: 8, borderWidth: 0.25, borderRadius: 16, marginVertical: 8 }}>
-        <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4}}>
-          {/* Left Container */}
-          <View style={{ maxWidth: '55%' }}>
+    <View style={{ marginBottom: (restaurantMenuLength - 1 === dishIndex && cartItems?.length) ? 64 : 0 }}>
+      <View style={{ marginHorizontal: 8, padding: 8, borderWidth: 0.25, borderRadius: 16, marginVertical: 8 }}>
 
-            {/* Type of food. Veg / Non-veg / Egg */}
-            <FoodTypeSymbol type={dishDetails?.type} />
+          <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4}}>
+            {/* Left Container */}
+            <View style={{ maxWidth: '55%' }}>
 
-            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{dishDetails?.name}</Text>
-            <View style={{ display: 'flex', flexDirection: 'row', gap: 8, alignItems: 'center' }}>
-              <View style={{ display: 'flex', flexDirection: 'row'}}>
-                <AntDesign name="star" size={14} color="#f2bf16" />
-                <AntDesign name="star" size={14} color="#f2bf16" />
-                <AntDesign name="star" size={14} color="#f2bf16" />
-                <FontAwesome name="star-half-full" size={14} color="#f2bf16" />
+              {/* Type of food. Veg / Non-veg / Egg */}
+              <FoodTypeSymbol type={dishDetails?.type} />
+
+              <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{dishDetails?.name}</Text>
+              <View style={{ display: 'flex', flexDirection: 'row', gap: 8, alignItems: 'center' }}>
+                <View style={{ display: 'flex', flexDirection: 'row'}}>
+                  <AntDesign name="star" size={14} color="#f2bf16" />
+                  <AntDesign name="star" size={14} color="#f2bf16" />
+                  <AntDesign name="star" size={14} color="#f2bf16" />
+                  <FontAwesome name="star-half-full" size={14} color="#f2bf16" />
+                </View>
+                <Text style={{ fontWeight: 'bold' }}>{dishDetails?.totalRatings} ratings</Text>
               </View>
-              <Text style={{ fontWeight: 'bold' }}>{dishDetails?.totalRatings} ratings</Text>
+              <View>
+                <Text style={{ fontWeight: 'bold' }}>₹{dishDetails?.price}</Text>
+              </View>
+              <View>
+                <Text ellipsizeMode="tail" numberOfLines={5}>{dishDetails?.description}</Text>
+              </View>
             </View>
-            <View>
-              <Text style={{ fontWeight: 'bold' }}>₹{dishDetails?.price}</Text>
-            </View>
-            <View>
-              <Text ellipsizeMode="tail" numberOfLines={5}>{dishDetails?.description}</Text>
-            </View>
-          </View>
 
-          {/* Right Container */}
-          <View>
-            <Image 
-              source={{
-                uri: dishDetails?.image
-              }}
-              style={{ width: 150, height: 150, borderRadius: 20 }}
-            />
+            {/* Right Container */}
+            <View>
+              <Image 
+                source={{
+                  uri: dishDetails?.image
+                }}
+                style={{ width: 150, height: 150, borderRadius: 20 }}
+              />
 
-            <View style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Pressable onPress={handleCartAdd} style={({ pressed }) => [ { paddingHorizontal: 40, paddingVertical: 8, borderWidth: 0.5, bottom: 20, backgroundColor: '#fff2f4', borderRadius: 12 }, pressed && { opacity: 0.95, backgroundColor: '#C6BABC' } ] }>
-                <Text style={{ color: '#f04f5f' }}>Add</Text>
+              <View style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Pressable onPress={() => handleCartAdd(dishDetails, 'add')} style={({ pressed }) => [ { paddingHorizontal: 40, paddingVertical: 8, borderWidth: 0.5, bottom: 20, backgroundColor: '#fff2f4', borderRadius: 12 }, pressed && { opacity: 0.95, backgroundColor: '#C6BABC' } ] }>
+                  <Text style={{ color: '#f04f5f' }}>{itemQuantity ? itemQuantity : 'Add'}</Text>
                   <Ionicons style={{ position: 'absolute', right: 5, top: 5}} name="add" size={12} color="#f04f5f" />
-              </Pressable>
+                </Pressable>
+              </View>
+              
             </View>
-            
-          </View>
 
-        </View>
+          </View>
 
       </View>
+    </View>
   )
 }
 
