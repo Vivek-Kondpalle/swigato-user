@@ -1,8 +1,8 @@
 import { View, Text, Pressable, StyleSheet, TouchableOpacity, Image, FlatList, ScrollView } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { restaurantDetails } from '../utils/restaurantsData';
 
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, Feather } from '@expo/vector-icons';
 import FoodItemCard from './FoodItemCard';
 
 
@@ -14,20 +14,79 @@ const RestaurantDetailsPage = ({ route }) => {
 
   const [cartItems, setCartItems] = useState([]);
 
-  const handleCartAdd = () => {
-    console.log(' in handleCartAdd ')
+  const handleCartAdd = (dishDetails, type) => {
+
+    let singleCartItemDetails = {
+      "id": dishDetails?.id,
+      "name": dishDetails?.name,
+      "image": dishDetails?.image,
+      "price": dishDetails?.price,
+      "type": dishDetails?.type,
+    }
+
+    if(cartItems?.length){
+
+      let existingItemIndex = cartItems.findIndex((element) => element?.id === dishDetails?.id);
+  
+      if(existingItemIndex !== -1){
+        const updatedCartItems = [...cartItems];
+        updatedCartItems[existingItemIndex].quantity += 1;
+        setCartItems(updatedCartItems);
+      } else {
+        const newItem = { ...dishDetails, quantity: 1 };
+        setCartItems([...cartItems, newItem]);
+      }
+    } else {
+      singleCartItemDetails['quantity'] = 1;
+      setCartItems([singleCartItemDetails])
+    }
+
   }
 
   return (
     <View>
       <FlatList
         data={restaurantAllDetails?.dishes}
-        renderItem={(item) => <FoodItemCard dishDetails={item} handleCartAdd={handleCartAdd} />}
+        renderItem={(item) => <FoodItemCard dishDetails={item} handleCartAdd={handleCartAdd} restaurantMenuLength={restaurantAllDetails?.dishes?.length} cartItems={cartItems} />}
         ListHeaderComponent={() => <Header restaurantAllDetails={restaurantAllDetails} />}
         ListFooterComponentStyle={{ marginBottom: 40 }}
         keyExtractor={(item) => item.id}
       />
 
+      {
+        cartItems?.length ? 
+        <View style={{ 
+          width: '100%', 
+          position: 'absolute', 
+          bottom: 0,
+          backgroundColor: 'white', 
+          shadowColor: '#000', 
+          shadowOffset: { width: 10, height: 10 }, 
+          shadowOpacity: 0.8, 
+          shadowRadius: 5, 
+          elevation: 1,
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10
+        }}>
+          <View style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row', marginHorizontal: 16, paddingVertical: 8 }}>
+
+            {/* Item added */}
+            <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 12 }}>
+              <Feather name="shopping-bag" size={24} color="black" />
+              <Text>{cartItems?.length} ITEM ADDED</Text>
+            </View>
+
+            {/* Next Button */}
+            <Pressable style={{ backgroundColor: '#f04f5f', paddingVertical: 16, paddingHorizontal: 56, borderRadius: 10}}>
+              <Text>Next</Text>
+            </Pressable>
+
+          </View>
+
+        </View>
+        :
+        null
+      }
     </View>
   )
 }
