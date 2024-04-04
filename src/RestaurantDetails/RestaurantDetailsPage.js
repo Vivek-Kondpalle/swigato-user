@@ -1,9 +1,10 @@
-import { View, Text, Pressable, StyleSheet, TouchableOpacity, Image, FlatList, ScrollView } from 'react-native'
+import { View, Text, Pressable, StyleSheet, TouchableOpacity, Image, FlatList, ScrollView, Modal } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { restaurantDetails } from '../utils/restaurantsData';
 
 import { AntDesign, Feather } from '@expo/vector-icons';
 import FoodItemCard from './FoodItemCard';
+import CustomModal from '../UI/Modal/CustomModal';
 
 
 
@@ -13,6 +14,16 @@ const RestaurantDetailsPage = ({ route }) => {
   const restaurantAllDetails = restaurantDetails?.find((element) => restaurantId === element?.id);
 
   const [cartItems, setCartItems] = useState([]);
+
+  const [viewModal, setViewModal] = useState(false);
+
+  const openModal = () => {
+    setViewModal(true)
+  }
+  
+  const closeModal = () => {
+    setViewModal(false)
+  }
 
   const handleCartAdd = (dishDetails, type) => {
 
@@ -73,7 +84,9 @@ const RestaurantDetailsPage = ({ route }) => {
             {/* Item added */}
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 12 }}>
               <Feather name="shopping-bag" size={24} color="black" />
-              <Text>{cartItems?.length} ITEM ADDED</Text>
+              <Pressable onPress={openModal}>
+                <Text>{cartItems?.length} ITEM ADDED</Text>
+              </Pressable>
             </View>
 
             {/* Next Button */}
@@ -83,6 +96,12 @@ const RestaurantDetailsPage = ({ route }) => {
 
           </View>
 
+
+
+          <CustomModal visible={viewModal} onClose={closeModal}>
+            <CartItemsPreview />
+          </CustomModal>
+
         </View>
         :
         null
@@ -90,6 +109,82 @@ const RestaurantDetailsPage = ({ route }) => {
     </View>
   )
 }
+
+
+const CartItemsPreview = () => {
+  return (
+    <View style={{ width: '100%', flex: 1 }}>
+      <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+        <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Items added</Text>
+        <Text style={{ fontSize: 16 }}>Clear all</Text>
+      </View>
+      
+      <ScrollView style={{ marginVertical: 24 }}>
+        {
+          [1, 2, 3, 4, 5, 6]?.map((item, index) => {
+            return (
+            <View key={index} style={{ display: 'flex', flexDirection: 'row', marginVertical: 10, gap: 8 }}>
+              
+              <View>
+                <Image 
+                  source={{
+                    uri: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg"
+                  }}
+                  style={{ width: 50, height: 50, borderRadius: 10 }}
+                />
+              </View>
+
+              <View style={styles.container}>
+                <View>
+                  <Text style={styles.dishName} numberOfLines={2} ellipsizeMode='tail'>Hamburger La Super Cabo Burger Hamburger La Super Cabo Burger Burger Burger</Text>
+                </View>
+                <View>
+                  <Text>₹389</Text>
+                </View>
+              </View>
+
+              <View style={{ alignItems: 'flex-end'}}>
+                <View style={styles.quantitySelector}>
+                  <TouchableOpacity style={styles.button}>
+                    <AntDesign name="minus" size={12} color="black" />
+                  </TouchableOpacity>
+                  
+                  <Text style={styles.quantityText}>1</Text>
+                  
+                  <TouchableOpacity style={styles.button}>
+                    <AntDesign name="plus" size={12} color="black" />
+                  </TouchableOpacity>
+                </View>
+                <View style={{ marginRight: 8 }}>
+                  <Text>₹1000</Text>
+                </View>
+              </View>
+
+            </View>
+            )
+          })
+        }
+      </ScrollView>
+
+      <View style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'row' }}>
+        {/* Item added */}
+        <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 12 }}>
+          <Feather name="shopping-bag" size={24} color="black" />
+          <Pressable>
+            <Text>1 ITEM ADDED</Text>
+          </Pressable>
+        </View>
+
+        {/* Next Button */}
+        <Pressable style={{ backgroundColor: '#f04f5f', paddingVertical: 16, paddingHorizontal: 56, borderRadius: 10}}>
+          <Text>Next</Text>
+        </Pressable>
+      </View>
+
+    </View>
+  )
+}
+
 
 const Header = (props) => {
   const restaurantAllDetails = props?.restaurantAllDetails
@@ -184,6 +279,37 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
+
+
+
+  quantitySelector: {
+    flexDirection: 'row', // Arrange items in a row
+    alignItems: 'center', // Center items vertically
+    borderWidth: 1, // Border to encase the component
+    borderColor: 'black', // Border color
+    borderRadius: 8, // Rounded corners
+  },
+  button: {
+    padding: 8, // Padding for touchable area
+    alignItems: 'center', // Center the icon
+    justifyContent: 'center', // Center the icon
+  },
+  quantityText: {
+    paddingHorizontal: 12, // Horizontal padding around the number
+    fontSize: 16, // Text size
+    color: 'black', // Text color
+  },
+
+  container: {
+    marginHorizontal: 4, // Ensure there's space at the sides
+    width: '55%'
+  },
+  dishName: {
+    flex: 1, // Take up as much space as possible
+    fontSize: 12, // Adjust the size as needed
+    color: 'black', // Adjust the color as needed
+  },
+
 });
 
 export default RestaurantDetailsPage
