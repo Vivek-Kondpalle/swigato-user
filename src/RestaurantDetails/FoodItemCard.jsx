@@ -1,6 +1,7 @@
-import { View, Text, Image, Pressable } from 'react-native'
+import { View, Text, Image, Pressable, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
+import FoodType from '../UI/common/foodType';
 
 const FoodItemCard = (props) => {
   const dishDetails = props?.dishDetails?.item
@@ -16,7 +17,11 @@ const FoodItemCard = (props) => {
       let existingItem = cartItems.find((element) => element?.id === dishDetails?.id);
       if(existingItem){
         setItemQuantity(existingItem?.quantity);
+      } else {
+        setItemQuantity(0);
       }
+    } else {
+      setItemQuantity(0);
     }
   }, [cartItems])
 
@@ -29,7 +34,7 @@ const FoodItemCard = (props) => {
             <View style={{ maxWidth: '55%' }}>
 
               {/* Type of food. Veg / Non-veg / Egg */}
-              <FoodTypeSymbol type={dishDetails?.type} />
+              <FoodType type={dishDetails?.type} />
 
               <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{dishDetails?.name}</Text>
               <View style={{ display: 'flex', flexDirection: 'row', gap: 8, alignItems: 'center' }}>
@@ -58,12 +63,29 @@ const FoodItemCard = (props) => {
                 style={{ width: 150, height: 150, borderRadius: 20 }}
               />
 
-              <View style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Pressable onPress={() => handleCartAdd(dishDetails, 'add')} style={({ pressed }) => [ { paddingHorizontal: 40, paddingVertical: 8, borderWidth: 0.5, bottom: 20, backgroundColor: '#fff2f4', borderRadius: 12 }, pressed && { opacity: 0.95, backgroundColor: '#C6BABC' } ] }>
-                  <Text style={{ color: '#f04f5f' }}>{itemQuantity ? itemQuantity : 'Add'}</Text>
-                  <Ionicons style={{ position: 'absolute', right: 5, top: 5}} name="add" size={12} color="#f04f5f" />
-                </Pressable>
-              </View>
+              {
+                itemQuantity ?
+                <View style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                  <View style={styles.quantitySelector}>
+                    <TouchableOpacity style={styles.button} onPress={() => handleCartAdd(dishDetails, 'remove')}>
+                      <AntDesign name="minus" size={12} color="#f04f5f" />
+                    </TouchableOpacity>
+                    
+                    <Text style={styles.quantityText}>{itemQuantity}</Text>
+                    
+                    <TouchableOpacity style={styles.button} onPress={() => handleCartAdd(dishDetails, 'add')}>
+                      <AntDesign name="plus" size={12} color="#f04f5f" />
+                    </TouchableOpacity>
+                  </View>
+                </View>
+                : 
+                <View style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  <Pressable onPress={() => handleCartAdd(dishDetails, 'add')} style={({ pressed }) => [ { paddingHorizontal: 40, paddingVertical: 8, borderWidth: 0.5, bottom: 20, backgroundColor: '#fff2f4', borderRadius: 12 }, pressed && { opacity: 0.95, backgroundColor: '#C6BABC' } ] }>
+                    <Text style={{ color: '#f04f5f' }}>{itemQuantity ? itemQuantity : 'Add'}</Text>
+                    <Ionicons style={{ position: 'absolute', right: 5, top: 5}} name="add" size={12} color="#f04f5f" />
+                  </Pressable>
+                </View>
+              }
               
             </View>
 
@@ -74,15 +96,30 @@ const FoodItemCard = (props) => {
   )
 }
 
-const FoodTypeSymbol = (props) => {
-  const foodType = props?.type;
 
 
-  return (
-    <View style={{ width: 16, height: 16, backgroundColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 5, borderColor:  foodType === 'veg' ? 'green' : 'red' , borderWidth: 1 }}>
-      <View style={{ width: 8, height: 8, backgroundColor: foodType === 'veg' ? 'green' : 'red', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 50 }}></View>
-    </View>
-  )
-}
+const styles = StyleSheet.create({
+  quantitySelector: {
+    flexDirection: 'row', // Arrange items in a row
+    alignItems: 'center', // Center items vertically
+    borderWidth: 1, // Border to encase the component
+    borderColor: 'black', // Border color
+    borderRadius: 8, // Rounded corners
+    backgroundColor: '#fff2f4',
+    bottom: 20,
+    paddingVertical: 4,
+    paddingHorizontal: 4
+  },
+  button: {
+    padding: 8, // Padding for touchable area
+    alignItems: 'center', // Center the icon
+    justifyContent: 'center', // Center the icon
+  },
+  quantityText: {
+    paddingHorizontal: 12, // Horizontal padding around the number
+    fontSize: 16, // Text size
+    color: '#f04f5f', // Text color
+  },
+})
 
 export default FoodItemCard

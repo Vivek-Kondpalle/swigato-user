@@ -10,7 +10,10 @@ import React from "react";
 const Tab = createBottomTabNavigator()
 
 const MyTabs = (props) => {
-  const hide = props?.routeName === 'RestaurantDetails' ? true : false;
+
+  const hideBottomTabsInScreens = ['RestaurantDetails', 'CheckoutScreen'];
+
+  const hide = hideBottomTabsInScreens?.includes(props?.routeName) ? true : false;
 
   return (
     <Tab.Navigator 
