@@ -1,6 +1,7 @@
 import { View, Text, Image, Pressable, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
+import FoodType from '../UI/common/foodType';
 
 const FoodItemCard = (props) => {
   const dishDetails = props?.dishDetails?.item
@@ -33,7 +34,7 @@ const FoodItemCard = (props) => {
             <View style={{ maxWidth: '55%' }}>
 
               {/* Type of food. Veg / Non-veg / Egg */}
-              <FoodTypeSymbol type={dishDetails?.type} />
+              <FoodType type={dishDetails?.type} />
 
               <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{dishDetails?.name}</Text>
               <View style={{ display: 'flex', flexDirection: 'row', gap: 8, alignItems: 'center' }}>
@@ -91,17 +92,6 @@ const FoodItemCard = (props) => {
           </View>
 
       </View>
-    </View>
-  )
-}
-
-const FoodTypeSymbol = (props) => {
-  const foodType = props?.type;
-
-
-  return (
-    <View style={{ width: 16, height: 16, backgroundColor: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 5, borderColor:  foodType === 'veg' ? 'green' : 'red' , borderWidth: 1 }}>
-      <View style={{ width: 8, height: 8, backgroundColor: foodType === 'veg' ? 'green' : 'red', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: 50 }}></View>
     </View>
   )
 }
