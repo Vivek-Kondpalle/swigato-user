@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator()
 
 const MyTabs = (props) => {
 
-  const hideBottomTabsInScreens = ['RestaurantDetails', 'CheckoutScreen'];
+  const hideBottomTabsInScreens = ['RestaurantDetails', 'CheckoutScreen', 'CouponsScreen', 'PersonalDetailsScreen', 'AddAddressScreen', 'PaymentScreen'];
 
   const hide = hideBottomTabsInScreens?.includes(props?.routeName) ? true : false;
 

@@ -5,7 +5,7 @@ import { Entypo } from '@expo/vector-icons';
 
 const screenHeight = Dimensions.get('window').height;
 
-const CustomModal = ({ children, onClose, visible }) => {
+const CustomModal = ({ children, onClose, visible, backgroundColor }) => {
     return (
         <Modal
             animationType="slide"
@@ -14,7 +14,7 @@ const CustomModal = ({ children, onClose, visible }) => {
             onRequestClose={onClose}
         >
             <View style={styles.modalOverlay}>
-                <View style={styles.modalView}>
+                <View style={ backgroundColor ? { ...styles.modalView, backgroundColor: backgroundColor } : styles.modalView}>
                     {children}
                 </View>
                 <TouchableOpacity
