@@ -1,10 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const OrderSummaryPage = () => {
+const OrderSummaryPage = ({ route }) => {
+  const { orderId } = route?.params;
+
   return (
     <View>
-      <Text>OrderSummaryPage</Text>
+      <Text>OrderSummaryPage - {orderId}</Text>
     </View>
   )
 }
