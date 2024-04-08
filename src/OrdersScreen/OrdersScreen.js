@@ -1,17 +1,22 @@
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, SafeAreaView, FlatList } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
+import { orderDetails } from '../utils/ordersData';
+import OrderCard from './OrderCard';
 
 const OrdersScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-      <Text>OrdersScreen</Text>
-      <Pressable onPress={() => navigation.navigate('OrderSummary')}>
-        <Text>OrderSummaryPage</Text>
-      </Pressable>
-    </View>
+    <SafeAreaView style={{ height: '100%', marginHorizontal: 8 }}>
+      <FlatList 
+        data={orderDetails} 
+        keyExtractor={item => item.id} 
+        showsVerticalScrollIndicator={false}
+        renderItem={(item) => <OrderCard detail={item} />} 
+        contentContainerStyle={{ paddingBottom: 40 }}
+      />
+    </SafeAreaView>
   )
 }
 

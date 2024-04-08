@@ -55,7 +55,7 @@ const MyTabs = (props) => {
           tabBarStyle: {
             height: 60
           },
-          tabBarLabel: 'Orders',
+          tabBarLabel: 'Profile',
           tabBarIcon: ({color}) => (
             <FontAwesome5 name="user-alt" size={24} color={color} />
           ),
