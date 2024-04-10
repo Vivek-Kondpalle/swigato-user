@@ -15,7 +15,7 @@ export const orderDetails = [
                 "name": "Chocolate Butter Cream Cake",
                 "quantity": 3,
                 'foodType': 'veg',
-                "pricePerItem": 735,
+                "pricePerItem": 35,
                 "totalPrice": 105
             },
             {
@@ -64,7 +64,7 @@ export const orderDetails = [
     },
     {
         "id": 2,
-        "restaurantName": "Iyengars Bakery",
+        "restaurantName": "Iyengars Bakery 2",
         "restaurantId": "2",
         "restaurantAddress": "1, 1st Cross, Gaurav Nagar, 7th Phase, 6th Main Road, JP Nagar, Bangalore",
         "restaurantImage": 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg',
@@ -127,7 +127,7 @@ export const orderDetails = [
     },
     {
         "id": 3,
-        "restaurantName": "Iyengars Bakery",
+        "restaurantName": "Iyengars Bakery 3",
         "restaurantId": "3",
         "restaurantAddress": "1, 1st Cross, Gaurav Nagar, 7th Phase, 6th Main Road, JP Nagar, Bangalore",
         "restaurantImage": 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg',
@@ -190,7 +190,7 @@ export const orderDetails = [
     },
     {
         "id": 4,
-        "restaurantName": "Iyengars Bakery",
+        "restaurantName": "Iyengars Bakery 4",
         "restaurantId": "4",
         "restaurantAddress": "1, 1st Cross, Gaurav Nagar, 7th Phase, 6th Main Road, JP Nagar, Bangalore",
         "restaurantImage": 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg',
