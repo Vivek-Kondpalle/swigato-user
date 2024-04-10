@@ -3,6 +3,7 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { orderDetails } from '../utils/ordersData';
 import OrderCard from './OrderCard';
+import OrderSeachBar from './OrderSeachBar';
 
 const OrdersScreen = () => {
   const navigation = useNavigation();
@@ -15,6 +16,7 @@ const OrdersScreen = () => {
         showsVerticalScrollIndicator={false}
         renderItem={(item) => <OrderCard detail={item} />} 
         contentContainerStyle={{ paddingBottom: 40 }}
+        ListHeaderComponent={<OrderSeachBar />}
       />
     </SafeAreaView>
   )

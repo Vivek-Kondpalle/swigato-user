@@ -36,8 +36,8 @@ const OrderCard = (props) => {
                         <Text>{detail?.restaurantName}</Text>
                         <Text style={{ flex: 1 }} numberOfLines={1} ellipsizeMode='tail'>{detail?.restaurantAddress}</Text>
                         <Pressable style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end'}}>
-                            <Text>View Menu</Text>
-                            <AntDesign name="caretright" size={12} color="black" />
+                            <Text style={{ color: '#f04f5f' }}>View Menu</Text>
+                            <AntDesign name="caretright" size={12} color='#f04f5f' />
                         </Pressable>
                     </View>
                 </View>
