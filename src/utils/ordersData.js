@@ -37,25 +37,57 @@ export const orderDetails = [
         "discounts": [
             {
                 "couponCode": "FEAST",
-                "savings": 24.50
+                "savings": '24.50'
             }
         ],
-        "taxes": 12.07,
-        "deliveryCharge": 86,
-        "restaurantPackagingCharges": 10.00,
-        "platformFee": 3.00,
+        "taxesAndcharges": [
+            {
+                "name": "GST",
+                "charge": "12.07",
+                "isTax": true
+            },
+            {
+                "name": "Delivery Charge",
+                "charge": '86',
+                "isTax": false
+            },
+            {
+                "name": 'Restaurant Packaging Charges',
+                "charge": '10.00',
+                "isTax": false
+            },
+            {
+                "name": 'Platform Fee',
+                "charge": '3.00',
+                "isTax": false
+            },
+        ],
         "grandTotal": 331.57,
         "totalSavings": 34.50,
-        "paymentDetails": {
-            "orderNumber": "5452511982",
-            "paymentMethod": "UPI",
-            "amountPaid": 331.57,
-            "paymentDate": "2023-12-29T10:04:00"
-        },
-        "deliveryDetails": {
-            "phoneNumber": "8308037XXX",
-            "deliveryAddress": "Park view comfort, 101, 1- floor, Sector 3, HSR Layout, Bengaluru"
-        },
+        "paymentDate": "2023-12-29T10:04:00",
+        "paymentDetails": [
+            {
+                "type": "Order Number",
+                "value": "5452511982",
+            },
+            {
+                "type": "Payment",
+                "value": "UPI",
+                "amountPaid": 331.57,
+            },
+            {
+                "type": "Date",
+                "value": "2023-12-29T10:04:00"
+            },
+            {
+                "type": "Phone Number",
+                "value": "8308037XXX"
+            },
+            {
+                "type": "Deliver to",
+                "value": "Park view comfort, 101, 1- floor, Sector 3, HSR Layout, Bengaluru"
+            }
+        ],
         "contactDetails": {
             "phoneNumber": "+91 8861851515",
             "restaurantLicenseNumber": "21224192000315"
@@ -65,7 +97,7 @@ export const orderDetails = [
     {
         "id": 2,
         "restaurantName": "Iyengars Bakery 2",
-        "restaurantId": "2",
+        "restaurantId": "1",
         "restaurantAddress": "1, 1st Cross, Gaurav Nagar, 7th Phase, 6th Main Road, JP Nagar, Bangalore",
         "restaurantImage": 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg',
         "invoiceLinks": {
@@ -78,7 +110,7 @@ export const orderDetails = [
                 "name": "Chocolate Butter Cream Cake",
                 "quantity": 3,
                 'foodType': 'veg',
-                "pricePerItem": 735,
+                "pricePerItem": 35,
                 "totalPrice": 105
             },
             {
@@ -100,25 +132,57 @@ export const orderDetails = [
         "discounts": [
             {
                 "couponCode": "FEAST",
-                "savings": 24.50
+                "savings": '24.50'
             }
         ],
-        "taxes": 12.07,
-        "deliveryCharge": 86,
-        "restaurantPackagingCharges": 10.00,
-        "platformFee": 3.00,
+        "taxesAndcharges": [
+            {
+                "name": "GST",
+                "charge": "12.07",
+                "isTax": true
+            },
+            {
+                "name": "Delivery Charge",
+                "charge": '86',
+                "isTax": false
+            },
+            {
+                "name": 'Restaurant Packaging Charges',
+                "charge": '10.00',
+                "isTax": false
+            },
+            {
+                "name": 'Platform Fee',
+                "charge": '3.00',
+                "isTax": false
+            },
+        ],
         "grandTotal": 331.57,
         "totalSavings": 34.50,
-        "paymentDetails": {
-            "orderNumber": "5452511982",
-            "paymentMethod": "UPI",
-            "amountPaid": 331.57,
-            "paymentDate": "2023-12-29T10:04:00"
-        },
-        "deliveryDetails": {
-            "phoneNumber": "8308037XXX",
-            "deliveryAddress": "Park view comfort, 101, 1- floor, Sector 3, HSR Layout, Bengaluru"
-        },
+        "paymentDate": "2023-12-29T10:04:00",
+        "paymentDetails": [
+            {
+                "type": "Order Number",
+                "value": "5452511982",
+            },
+            {
+                "type": "Payment",
+                "value": "UPI",
+                "amountPaid": 331.57,
+            },
+            {
+                "type": "Date",
+                "value": "2023-12-29T10:04:00"
+            },
+            {
+                "type": "Phone Number",
+                "value": "8308037XXX"
+            },
+            {
+                "type": "Deliver to",
+                "value": "Park view comfort, 101, 1- floor, Sector 3, HSR Layout, Bengaluru"
+            }
+        ],
         "contactDetails": {
             "phoneNumber": "+91 8861851515",
             "restaurantLicenseNumber": "21224192000315"
@@ -128,7 +192,7 @@ export const orderDetails = [
     {
         "id": 3,
         "restaurantName": "Iyengars Bakery 3",
-        "restaurantId": "3",
+        "restaurantId": "1",
         "restaurantAddress": "1, 1st Cross, Gaurav Nagar, 7th Phase, 6th Main Road, JP Nagar, Bangalore",
         "restaurantImage": 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg',
         "invoiceLinks": {
@@ -141,7 +205,7 @@ export const orderDetails = [
                 "name": "Chocolate Butter Cream Cake",
                 "quantity": 3,
                 'foodType': 'veg',
-                "pricePerItem": 735,
+                "pricePerItem": 35,
                 "totalPrice": 105
             },
             {
@@ -163,25 +227,57 @@ export const orderDetails = [
         "discounts": [
             {
                 "couponCode": "FEAST",
-                "savings": 24.50
+                "savings": '24.50'
             }
         ],
-        "taxes": 12.07,
-        "deliveryCharge": 86,
-        "restaurantPackagingCharges": 10.00,
-        "platformFee": 3.00,
+        "taxesAndcharges": [
+            {
+                "name": "GST",
+                "charge": "12.07",
+                "isTax": true
+            },
+            {
+                "name": "Delivery Charge",
+                "charge": '86',
+                "isTax": false
+            },
+            {
+                "name": 'Restaurant Packaging Charges',
+                "charge": '10.00',
+                "isTax": false
+            },
+            {
+                "name": 'Platform Fee',
+                "charge": '3.00',
+                "isTax": false
+            },
+        ],
         "grandTotal": 331.57,
         "totalSavings": 34.50,
-        "paymentDetails": {
-            "orderNumber": "5452511982",
-            "paymentMethod": "UPI",
-            "amountPaid": 331.57,
-            "paymentDate": "2023-12-29T10:04:00"
-        },
-        "deliveryDetails": {
-            "phoneNumber": "8308037XXX",
-            "deliveryAddress": "Park view comfort, 101, 1- floor, Sector 3, HSR Layout, Bengaluru"
-        },
+        "paymentDate": "2023-12-29T10:04:00",
+        "paymentDetails": [
+            {
+                "type": "Order Number",
+                "value": "5452511982",
+            },
+            {
+                "type": "Payment",
+                "value": "UPI",
+                "amountPaid": 331.57,
+            },
+            {
+                "type": "Date",
+                "value": "2023-12-29T10:04:00"
+            },
+            {
+                "type": "Phone Number",
+                "value": "8308037XXX"
+            },
+            {
+                "type": "Deliver to",
+                "value": "Park view comfort, 101, 1- floor, Sector 3, HSR Layout, Bengaluru"
+            }
+        ],
         "contactDetails": {
             "phoneNumber": "+91 8861851515",
             "restaurantLicenseNumber": "21224192000315"
@@ -191,7 +287,7 @@ export const orderDetails = [
     {
         "id": 4,
         "restaurantName": "Iyengars Bakery 4",
-        "restaurantId": "4",
+        "restaurantId": "1",
         "restaurantAddress": "1, 1st Cross, Gaurav Nagar, 7th Phase, 6th Main Road, JP Nagar, Bangalore",
         "restaurantImage": 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/uber-eats/restaurant1.jpeg',
         "invoiceLinks": {
@@ -204,7 +300,7 @@ export const orderDetails = [
                 "name": "Chocolate Butter Cream Cake",
                 "quantity": 3,
                 'foodType': 'veg',
-                "pricePerItem": 735,
+                "pricePerItem": 35,
                 "totalPrice": 105
             },
             {
@@ -226,29 +322,61 @@ export const orderDetails = [
         "discounts": [
             {
                 "couponCode": "FEAST",
-                "savings": 24.50
+                "savings": '24.50'
             }
         ],
-        "taxes": 12.07,
-        "deliveryCharge": 86,
-        "restaurantPackagingCharges": 10.00,
-        "platformFee": 3.00,
+        "taxesAndcharges": [
+            {
+                "name": "GST",
+                "charge": "12.07",
+                "isTax": true
+            },
+            {
+                "name": "Delivery Charge",
+                "charge": '86',
+                "isTax": false
+            },
+            {
+                "name": 'Restaurant Packaging Charges',
+                "charge": '10.00',
+                "isTax": false
+            },
+            {
+                "name": 'Platform Fee',
+                "charge": '3.00',
+                "isTax": false
+            },
+        ],
         "grandTotal": 331.57,
         "totalSavings": 34.50,
-        "paymentDetails": {
-            "orderNumber": "5452511982",
-            "paymentMethod": "UPI",
-            "amountPaid": 331.57,
-            "paymentDate": "2023-12-29T10:04:00"
-        },
-        "deliveryDetails": {
-            "phoneNumber": "8308037XXX",
-            "deliveryAddress": "Park view comfort, 101, 1- floor, Sector 3, HSR Layout, Bengaluru"
-        },
+        "paymentDate": "2023-12-29T10:04:00",
+        "paymentDetails": [
+            {
+                "type": "Order Number",
+                "value": "5452511982",
+            },
+            {
+                "type": "Payment",
+                "value": "UPI",
+                "amountPaid": 331.57,
+            },
+            {
+                "type": "Date",
+                "value": "2023-12-29T10:04:00"
+            },
+            {
+                "type": "Phone Number",
+                "value": "8308037XXX"
+            },
+            {
+                "type": "Deliver to",
+                "value": "Park view comfort, 101, 1- floor, Sector 3, HSR Layout, Bengaluru"
+            }
+        ],
         "contactDetails": {
             "phoneNumber": "+91 8861851515",
             "restaurantLicenseNumber": "21224192000315"
         }
 
-    }
+    },
 ]

@@ -59,7 +59,7 @@ const OrderCard = (props) => {
             </Pressable>
 
             <Pressable onPress={goToSummary} style={{ padding: 12, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Text>{detail?.paymentDetails?.paymentDate}</Text>
+                <Text>{detail?.paymentDate}</Text>
                 <View style={{ flexDirection: 'row', alignItems:'center', gap: 4 }}>
                     <Text>₹{detail?.grandTotal}</Text>
                     <AntDesign name="right" size={14} color="black" />
