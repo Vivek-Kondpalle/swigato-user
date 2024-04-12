@@ -1,4 +1,4 @@
-import { createStackNavigator } from "@react-navigation/stack"
+import { CardStyleInterpolators, createStackNavigator } from "@react-navigation/stack"
 import ProfileScreen from "../ProfileScreen/ProfileScreen";
 import FavoritesScreen from "../FavoritesScreen/FavoritesScreen";
 import UserProfileScreen from "../UserProfile/UserProfileScreen";
@@ -9,7 +9,11 @@ const Stack = createStackNavigator();
 
 const ProfileScreenStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    screenOptions={{
+      cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+    }}
+    >
       <Stack.Screen name="ProfilePage" component={ProfileScreen} />
       <Stack.Screen name="FavoritesPage" component={FavoritesScreen} />
       <Stack.Screen name="UserProfilePage" component={UserProfileScreen} />

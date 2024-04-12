@@ -26,7 +26,7 @@ const ProfileScreen = () => {
 
       <View style={{ marginVertical: 16, gap: 16 }}>
 
-        <View style={{ backgroundColor: 'white', paddingHorizontal: 16, paddingVertical: 16, borderRadius: 8 }}>
+        <Pressable onPress={() => {navigation?.navigate('UserProfilePage')}} style={{ backgroundColor: 'white', paddingHorizontal: 16, paddingVertical: 16, borderRadius: 8 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
             <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
@@ -34,15 +34,15 @@ const ProfileScreen = () => {
                 <Feather name="user" size={18} color="#95a3b8" />
               </View>
               <View>
-                <Text>YOur Profile</Text>
+                <Text>Your Profile</Text>
               </View>
             </View>
 
             <AntDesign name="right" size={18} color="#9da4a6" />
           </View>
-        </View>
+        </Pressable>
 
-        <View style={{ backgroundColor: 'white', paddingHorizontal: 16, paddingVertical: 16, borderRadius: 8 }}>
+        <Pressable onPress={() => {navigation?.navigate('FavoritesPage')}} style={{ backgroundColor: 'white', paddingHorizontal: 16, paddingVertical: 16, borderRadius: 8 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
             <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
@@ -56,9 +56,9 @@ const ProfileScreen = () => {
 
             <AntDesign name="right" size={18} color="#9da4a6" />
           </View>
-        </View>
+        </Pressable>
 
-        <View style={{ backgroundColor: 'white', paddingHorizontal: 16, paddingVertical: 16, borderRadius: 8 }}>
+        <Pressable onPress={() => {navigation?.navigate('AddressBookPage')}} style={{ backgroundColor: 'white', paddingHorizontal: 16, paddingVertical: 16, borderRadius: 8 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
 
             <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
@@ -72,7 +72,8 @@ const ProfileScreen = () => {
 
             <AntDesign name="right" size={18} color="#9da4a6" />
           </View>
-        </View>
+        </Pressable>
+
       </View>
     </View>
   )
