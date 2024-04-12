@@ -106,8 +106,8 @@ const OrderSummaryPage = ({ route }) => {
         </View>
 
         {
-          orderAllDetails?.paymentDetails?.map((paymentDetails) => (
-            <View style={{ marginVertical: 8 }}>
+          orderAllDetails?.paymentDetails?.map((paymentDetails, index) => (
+            <View key={index} style={{ marginVertical: 8 }}>
               <View>
                 <Text style={{ fontSize: 12 }}>{paymentDetails?.type}</Text>
                 <Text>{paymentDetails?.value === 'UPI' ? 'Paid: Using ' : ''}{paymentDetails?.value} {paymentDetails?.type === 'Payment' ? '₹' + paymentDetails?.amountPaid : ''}</Text>
